@@ -1,0 +1,1 @@
+wotools.init();

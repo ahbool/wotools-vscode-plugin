@@ -1,0 +1,4 @@
+{
+    "woTools.contributes.views.mainTreeView": "Tools List",
+    "woTools.contributes.views.favoriteTreeView": "My Tools List"
+}

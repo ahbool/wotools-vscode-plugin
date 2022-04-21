@@ -1,0 +1,26 @@
+[
+    {
+        "id": "data-format",
+        "displayName": {
+            "en": "Data Formatting",
+            "zh-cn": "数据格式化"
+        },
+        "order": 1
+    },
+    {
+        "id": "encrypt-decrypt",
+        "displayName": {
+            "en": "Encrypt / Decrypt",
+            "zh-cn": "加密 / 解密"
+        },
+        "order": 2
+    },
+    {
+        "id": "other",
+        "displayName": {
+            "en": "Othen",
+            "zh-cn": "其它"
+        },
+        "order": 3
+    }
+]

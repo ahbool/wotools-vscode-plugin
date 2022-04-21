@@ -1,0 +1,11 @@
+{
+    "id": "json-format",
+    "main": "index.html",
+    "logo": "logo.svg",
+    "displayName": "JSON格式化",
+    "description": "JSON格式化工具用来处理JSON数据",
+    "version": "0.0.1",
+    "author": "Zhang San",
+    "homepage": "http://111.com",
+    "categoryId": "data-format"
+}

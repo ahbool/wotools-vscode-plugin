@@ -3,6 +3,8 @@
     "displayName": "woTools-vscode-plugin",
     "description": "woTools is a web development toolkit",
     "version": "0.0.1",
+    "publisher": "ahbool",
+    "icon": "resources/logo.png",
     "engines": {
         "vscode": "^1.32.0"
     },
@@ -10,16 +12,34 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:wotools-vscode-plugin.helloWorld"
+        "*"
     ],
     "main": "./dist/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "wotools-vscode-plugin.helloWorld",
-                "title": "Hello World"
+                "command": "woTools.selectPlugin",
+                "title": "-",
+                "category": "woTools"
             }
-        ]
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "woTools-explorer",
+                    "title": "woTools",
+                    "icon": "resources/logo2.png"
+                }
+            ]
+        },
+        "views": {
+            "woTools-explorer": [
+                {
+                    "id": "mainTreeView",
+                    "name": "%woTools.contributes.views.mainTreeView%"
+                }
+            ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run package",
@@ -30,7 +50,10 @@
         "watch-tests": "tsc -p -w . --outDir out",
         "pretest": "npm run compile-tests && npm run compile && npm run lint",
         "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js"
+        "test": "node ./out/test/runTest.js",
+        "build": "vsce package",
+        "webpack": "webpack --mode development",
+        "webpack-dev": "webpack --mode development --watch"
     },
     "devDependencies": {
         "@types/vscode": "^1.66.0",
@@ -47,5 +70,12 @@
         "webpack": "^5.52.1",
         "webpack-cli": "^4.8.0",
         "@vscode/test-electron": "^1.6.2"
+    },
+    "dependencies": {
+        "qiankun": "^2.7.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.xc5.io/git/xc5-sz/xcalscan-vscode-plugin"
     }
 }

@@ -3,6 +3,7 @@
 out/**
 node_modules/**
 src/**
+logs/**
 .gitignore
 .yarnrc
 webpack.config.js
@@ -11,3 +12,4 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 **/*.map
 **/*.ts
+.editorconfig
