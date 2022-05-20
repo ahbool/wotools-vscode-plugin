@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import weToolsConfigs from '../../woToolsConfigs';
+import configs from '../../woToolsConfigs';
 import globalManager from '../../dataManager/globalManager';
 import MainTreeNodeType from './mainTreeNodeType';
 import IPlugin from '../../module/plugin';
@@ -79,14 +79,29 @@ category id: ${data.categoryId}`;
     }
 
     public get iconPath() {
-        let iconName: string;
+        let iconName: string = '';
+        let customIconPath: string = '';
         switch (this._nodeType) {
             case MainTreeNodeType.category:
-                iconName = weToolsConfigs.categoryIcon;
+                const categoryData = <ICategory>this.nodeData;
+                if (categoryData.logo) {
+                    iconName = categoryData.logo;
+                } else {
+                    iconName = configs.categoryIcon;
+                }
                 break;
             case MainTreeNodeType.plugin:
-                iconName = weToolsConfigs.pluginIcon;
+                const pluginData = <IPlugin>this.nodeData;
+                if (pluginData.logo) {
+                    customIconPath = path.join(pluginData._pluginDirAbsolutePath, pluginData.logo);
+                } else {
+                    iconName = configs.pluginIcon;
+                }
                 break;
+        }
+
+        if (customIconPath) {
+            return customIconPath;
         }
 
         return {

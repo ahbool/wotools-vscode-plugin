@@ -13,4 +13,5 @@ export default interface ICategory {
               'zh-cn': string;
           };
     order: number;
+    logo: string;
 }

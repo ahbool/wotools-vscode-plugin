@@ -6,23 +6,24 @@ import webviewManager from '../dataManager/webviewManager';
 export default function selectPlugin(pluginName: string, data: IPlugin) {
     const defaultHtmlEntry = 'index.html';
     const defaultJsEntry = 'index.js';
+    const pluginDir: string = data._pluginDirAbsolutePath;
 
-    let entryFileName: string = '';
-    let entryFileDir: string = data._pluginDirAbsolutePath;
+    let mainFileName: string = '';
     let isExists: boolean = false;
+    let webviewIconPath: string | undefined;
 
     if (data.main) {
-        entryFileName = data.main;
-        isExists = isExistsFile(entryFileDir, data.main);
+        mainFileName = data.main;
+        isExists = isExistsFile(pluginDir, data.main);
     }
 
     if (!isExists) {
-        entryFileName = defaultHtmlEntry;
-        isExists = isExistsFile(entryFileDir, entryFileName);
+        mainFileName = defaultHtmlEntry;
+        isExists = isExistsFile(pluginDir, mainFileName);
     }
     if (!isExists) {
-        entryFileName = defaultJsEntry;
-        isExists = isExistsFile(entryFileDir, entryFileName);
+        mainFileName = defaultJsEntry;
+        isExists = isExistsFile(pluginDir, mainFileName);
     }
 
     if (!isExists) {
@@ -30,14 +31,18 @@ export default function selectPlugin(pluginName: string, data: IPlugin) {
         return;
     }
 
-    const extname = path.extname(entryFileName);
+    if (data.logo) {
+        webviewIconPath = path.join(pluginDir, data.logo);
+    }
+
+    const extname = path.extname(mainFileName);
 
     switch (extname) {
         case '.js':
-            runJS(entryFileDir, entryFileName);
+            runJS(pluginDir, mainFileName);
             break;
         case '.html':
-            runHtml(path.join(entryFileDir, entryFileName), pluginName);
+            runHtml(path.join(pluginDir, mainFileName), pluginName, webviewIconPath);
             break;
         default:
             diaplsyError();
@@ -49,18 +54,19 @@ function isExistsFile(dirPath: string, fileName: string) {
     return utils.file.existsSync(path.join(dirPath, fileName));
 }
 
-function runJS(entryFileDir: string, entryFileName: string) {
+function runJS(pluginDir: string, mainFileName: string) {
     // TODO
-    // const mainJS = require(path.join(entryFileDir, entryFileName)).default;
+    // const mainJS = require(path.join(pluginDir, mainFileName)).default;
     console.log('runJS...');
 }
 
-function runHtml(entryFilePath: string, title: string) {
+function runHtml(entryFilePath: string, title: string, iconPath?: string) {
     const htmlContent = webviewManager.getWebViewContent(entryFilePath);
     webviewManager.showWebview({
         title,
         content: htmlContent,
         isSideMode: false,
+        iconPath,
     });
 }
 

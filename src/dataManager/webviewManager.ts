@@ -62,7 +62,7 @@ class WebviewManager implements vscode.Disposable {
      * @param content HTML text
      * @param isSideMode display in the side
      */
-    public showWebview({ title, content, isSideMode = false }: { title?: string; content?: string; isSideMode?: boolean }): void {
+    public showWebview({ title, content, isSideMode = false, iconPath }: { title?: string; content?: string; isSideMode?: boolean; iconPath?: string }): void {
         if (!this.panel) {
             this.panel = vscode.window.createWebviewPanel(
                 this.viewType,
@@ -88,6 +88,10 @@ class WebviewManager implements vscode.Disposable {
 
         if (content) {
             this.panel.webview.html = content;
+        }
+
+        if (iconPath) {
+            this.panel.iconPath = vscode.Uri.file(iconPath);
         }
     }
 
