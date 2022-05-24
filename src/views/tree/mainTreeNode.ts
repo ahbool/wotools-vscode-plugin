@@ -21,6 +21,17 @@ export class MainTreeNode {
         }
     }
 
+    public get description(): string | undefined {
+        const desc = this._nodeData.description;
+        if (typeof desc === 'string') {
+            return desc;
+        }
+
+        if (utils.json.isJson(desc)) {
+            return (<any>desc)[globalManager.language];
+        }
+    }
+
     public get tooltip(): string | undefined {
         if (this._nodeType === MainTreeNodeType.category) {
             return `id: ${this._nodeData.id}`;
@@ -30,19 +41,8 @@ export class MainTreeNode {
             const data = this._nodeData as IPlugin;
             return `author: ${data.author}
 version: ${data.version}
-description: ${data.description}
+description: ${this.description}
 category id: ${data.categoryId}`;
-        }
-    }
-
-    public get description(): string | undefined {
-        const desc = this._nodeData.description;
-        if (typeof desc === 'string') {
-            return desc;
-        }
-
-        if (utils.json.isJson(desc)) {
-            return (<any>desc)[globalManager.language];
         }
     }
 

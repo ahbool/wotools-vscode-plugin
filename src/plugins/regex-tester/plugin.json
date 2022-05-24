@@ -1,0 +1,17 @@
+{
+    "id": "regex-tester",
+    "main": "index.html",
+    "logo": "logo.png",
+    "displayName": {
+        "en": "Regex Tester",
+        "zh-CN": "正则表达式测试器"
+    },
+    "description": {
+        "en": "Regular Expression Tester",
+        "zh-CN": "正则表达式测试器"
+    },
+    "version": "0.0.1",
+    "author": "unknown",
+    "homepage": "http://unknown",
+    "categoryId": "other"
+}
