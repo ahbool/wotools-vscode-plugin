@@ -1,5 +1,9 @@
 const vscode = acquireVsCodeApi();
-const wotools = {
+if (typeof wotools === 'undefined') {
+    wotools = {};
+}
+wotools = {
+    ...wotools,
     gotoPage: function (pagePath) {
         vscode.postMessage({
             type: 'redirect',

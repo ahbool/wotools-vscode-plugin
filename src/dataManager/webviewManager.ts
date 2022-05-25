@@ -36,6 +36,7 @@ class WebviewManager implements vscode.Disposable {
     };
 
     private insertWotoolsScript = (htmlContent: string) => {
+        const language = globalManager.language;
         let basejsPath = path.join(configs.builtinPluginDirPath, 'wotools-base.js');
         let initjsPath = path.join(configs.builtinPluginDirPath, 'wotools-init.js');
 
@@ -46,6 +47,11 @@ class WebviewManager implements vscode.Disposable {
             .replace(
                 '<head>',
                 `<head>
+            <script>
+                let wotools = {
+                    language: '${language}'
+                };
+            </script>
             <script src="${basejsPath}"></script>`
             )
             .replace(
@@ -73,6 +79,7 @@ class WebviewManager implements vscode.Disposable {
                 },
                 {
                     enableScripts: true,
+                    retainContextWhenHidden: true,
                 }
             );
 

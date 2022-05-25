@@ -28,8 +28,6 @@ div.checkbox {
 div.buttons {
   margin: 15px 0 20px;
 }
-/*end*/
-
 h1 {font-size: 1.2rem;}
 .breadcrumbs {
     font-size: 13px;
@@ -37,6 +35,7 @@ h1 {font-size: 1.2rem;}
 .form-wrapper, .form-control {
     font-size: 14px;
 }
+/*end*/
 
 #inputCt,#errorBox {
 margin:8px 0px;
@@ -846,26 +845,6 @@ function clearSelect() {
 }
 </script>
 <script>
-		var $search = $('#search-tools');
-		$search.on('input', function() {
-			var searchText = $search.val().toUpperCase();
-			if(searchText!=''){
-				$('.filters-card-header').hide();
-			}else{
-				$('.filters-card-header').show();
-			}
-			$('.custom-control').each(function() {
-				var textValue = this.innerText.toUpperCase();
-				if (searchText === '' || textValue.toUpperCase().indexOf(searchText) > -1) {
-					$(this).css("display","block");
-				} else {
-					$(this).css("display","none");
-				}
-			});
-		});
-	</script>
-<script>
-	
 		document.addEventListener('DOMContentLoaded', (event) => {
 			try{
 				  document.querySelectorAll('pre').forEach((el) => {
