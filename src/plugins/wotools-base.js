@@ -4,7 +4,10 @@ if (typeof wotools === 'undefined') {
 }
 wotools = {
     ...wotools,
-    gotoPage: function (pagePath) {
+    gotoPage: function (pagePath, isAbsolutePath) {
+        if (!isAbsolutePath) {
+            pagePath = wotools.currPluginDirPath + pagePath;
+        }
         vscode.postMessage({
             type: 'redirect',
             data: pagePath,
@@ -25,7 +28,7 @@ wotools = {
             link.addEventListener(
                 'click',
                 () => {
-                    this.gotoPage(filePath);
+                    this.gotoPage(filePath, true);
                 },
                 false
             );

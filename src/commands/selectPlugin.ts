@@ -42,7 +42,7 @@ export default function selectPlugin(pluginName: string, data: IPlugin) {
             runJS(pluginDir, mainFileName);
             break;
         case '.html':
-            runHtml(path.join(pluginDir, mainFileName), pluginName, webviewIconPath);
+            runHtml(pluginDir, mainFileName, pluginName, webviewIconPath);
             break;
         default:
             diaplsyError();
@@ -60,8 +60,9 @@ function runJS(pluginDir: string, mainFileName: string) {
     console.log('runJS...');
 }
 
-function runHtml(entryFilePath: string, title: string, iconPath?: string) {
-    const htmlContent = webviewManager.getWebViewContent(entryFilePath);
+function runHtml(pluginDir: string, mainFileName: string, title: string, iconPath?: string) {
+    const entryFilePath = path.join(pluginDir, mainFileName);
+    const htmlContent = webviewManager.getWebViewContent(entryFilePath, pluginDir);
     webviewManager.showWebview({
         title,
         content: htmlContent,

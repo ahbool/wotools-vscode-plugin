@@ -66,7 +66,7 @@ class MainTreeManager implements vscode.Disposable {
                 const jsonData: any = utils.file.readJsonSync(pluginConfigPath);
 
                 if (jsonData) {
-                    jsonData['_pluginDirAbsolutePath'] = filePath;
+                    jsonData['_pluginDirAbsolutePath'] = path.join(filePath, path.sep);
                     jsonDataList.push(jsonData as IPlugin);
                 } else {
                     utils.logger.error('An error occurred while reading the file', pluginConfigPath);

@@ -3,12 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>正则表达式测试工具和可视化工具</title>
-<script>
-  if(wotools.language === 'en') {
-    wotools.gotoPage('index_en.html');
-  }
-</script>
+<title>Regular Expression Tester and Visualizer</title>
+
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/github-markdown.css">
 <link rel="stylesheet" href="css/style.css">
@@ -188,9 +184,9 @@ r {
 <div class="container">
 <div class="row">
 <div class="col-md-12 text-center">
-<h1 class="mt-0 mb-3 text-white">正则表达式测试 和 可视化工具</h1>
+<h1 class="mt-0 mb-3 text-white">Regular Expression Tester and Visualizer</h1>
 <div class="breadcrumbs">
-<p class="mb-0 text-white">正则表达式测试和可视化工具，并突出显示匹配的结果，并用可视化的方式直观地显示正则表达式。</p>
+<p class="mb-0 text-white">Regular Expression Tester and Visualizer is a developer tool to test and visualize a regular expression against any string instantly with matches highlighted including a cheat sheet and reference.</p>
 </div>
 </div>
 </div>
@@ -204,27 +200,27 @@ r {
 <div class="form-wrapper">
 <form onsubmit="javascript:void(0);">
 <div class="form-group">
-<label class="title first " style="font-weight: 500;" for="regex">正则表达式 :</label >
+<label class="title first " style="font-weight: 500;" for="regex">Regular expression :</label >
 <input type="text" id="regex" class="form-control" style="width:100%;" placeholder="(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])" />
 </div>
 <div class="form-group">
-<label for="inputString" style="font-weight: 500;">匹配内容 :</label>
+<label for="inputString" style="font-weight: 500;">Entry to test against :</label>
 <textarea rows="" cols="" id="inputString" class="form-control" style="width:100%;height:100px;"></textarea>
 </div>
 <div class="form-group">
-<label for="replaceString" style="font-weight: 500;">替换为 (可选):</span></label>
+<label for="replaceString" style="font-weight: 500;">Replace with (Optional):</span></label>
 <input type="text" id="replaceString" class="form-control" style="width:100%;" />
-<div style="margin-top:3px;color:#888;font-size:11px">如果在正则表达式中使用括号组，则可以使用$1、$2、$3等。支持\t \n \r.</div>
+<div style="margin-top:3px;color:#888;font-size:11px">You can make use of $1, $2, $3 and so on if you are using parenthesis groups in your regular expression. \t \n \r are supported.</div>
 </div>
-<div class="title"><span class="option" style="font-weight: 500;">修饰符:</span></div>
+<div class="title"><span class="option" style="font-weight: 500;">Flags:</span></div>
 <div>
-<div class="checkbox"><input type="checkbox" name="flag" id="ignoreCase" checked="checked" value="i" /><label for="ignoreCase" style="float:none;">i - 不区分大小写</label></div>
-<div class="checkbox"><input type="checkbox" name="flag" class="checkbox" id="multiline" checked="checked" value="m" /><label for="multiline" style="float:none;">m - 多行</label></div>
-<div class="checkbox"><input type="checkbox" name="flag" class="checkbox" id="global" checked="checked" value="g" /><label for="global" style="float:none;">g - 全局(全文查找所有匹配字符，如果非全局模式，则找到第一个匹配内容后停止查找)</label></div>
+<div class="checkbox"><input type="checkbox" name="flag" id="ignoreCase" checked="checked" value="i" /><label for="ignoreCase" style="float:none;">i - Case-insensitive</label></div>
+<div class="checkbox"><input type="checkbox" name="flag" class="checkbox" id="multiline" checked="checked" value="m" /><label for="multiline" style="float:none;">m - Multiline</label></div>
+<div class="checkbox"><input type="checkbox" name="flag" class="checkbox" id="global" checked="checked" value="g" /><label for="global" style="float:none;">g - Global (don't stop at first match)</label></div>
 </div>
 <div class="buttons">
-<button id="matchesButton" class="btn btn-primary" type="button">测试匹配</button>
-<button id="replaceButton" class="btn btn-primary" type="button">替换</button>
+<button id="matchesButton" class="btn btn-primary" type="button">TEST MATCH</button>
+<button id="replaceButton" class="btn btn-primary" type="button">REPLACE</button>
 </div>
 <div id="result-wrapper" class="mt-3" style="display:none;">
 <div class="title"><span class="option">Result:</span></div>
@@ -234,121 +230,121 @@ r {
 </form>
 </div>
 <div id="inputCt">
-<p id="errorBox" class="code">错误消息</p>
+<p id="errorBox" class="code">Error Message</p>
 <div id="graphCt" class="code"></div>
 </div>
 <div id="description" class="stats-desc">
 <article class="markdown-body">
 <div class="ublyy0-1 bcPrsA bp3-running-text">
-<h2>什么是正则表达式?</h2>
-<p>正则表达式(也称为regex或regexp)是由一组字符和可选标志组成的搜索模式。可以使用正则表达式定义搜索模式，以便在文本中查找数据。</p>
-<h3>修饰符</h3>
-<p>正则表达式中的标记或修饰符用于自定义搜索.</p>
+<h2>What is a regular expression?</h2>
+<p>A regular expression (also known as regex or regexp) is a search pattern consisting of a set of characters and optional flags. You can use a regular expression to define a search pattern to find data in a text.</p>
+<h3>Flags</h3>
+<p>Flags or modifiers in regular expressions are used to customize searching.</p>
 <div height="100%" style="overflow-x:auto" width="100%">
 <table class="bp3-html-table bp3-html-table-bordered bp3-html-table-striped bp3-interactive">
 <thead>
 <tr>
-<th>修饰符</th>
-<th>描述</th>
+<th>Flag</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>g</code></td>
-<td>全局匹配 - 查找所有匹配，而不是在第一个匹配处停止</td>
+<td>Global match - finds all matches instead of stopping at the first one</td>
 </tr>
 <tr>
 <td><code>i</code></td>
-<td>忽略大小写 - 执行不区分大小写的搜索</td>
+<td>Ignore case - performs a case insensitive search</td>
 </tr>
 <tr>
 <td><code>m</code></td>
-<td>多行 - 允许 <code>^</code> 和 <code>$</code> 匹配行的开始和结束</td>
+<td>Multiline - allows <code>^</code> and <code>$</code> to match start and end of line</td>
 </tr>
 <tr>
 <td><code>u</code></td>
-<td>Unicode — 启用完整的Unicode支持</td>
+<td>Unicode - enables full Unicode support</td>
 </tr>
 <tr>
 <td><code>y</code></td>
-<td>粘性(RegExp.prototype.sticky) - 仅从正则表达式的 <code>lastIndex</code> 属性表示的索引处开始匹配）</td>
+<td>Sticky - starts searching at the <code>lastIndex</code> position</td>
 </tr>
 <tr>
 <td><code>s</code></td>
-<td>单行模式 - 又称为 &quot;RegExp.prototype.dotAll&quot;, 可以使用 <code>.</code> 去匹配换行符 <code>\n</code></td>
+<td>Singleline - also known as &quot;dotall&quot;, allows <code>.</code> to match newlines <code>\n</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 &nbsp;
-<h3>中括号</h3>
-<p>中括号用于在正则表达式中搜索给定范围内的字符。</p>
+<h3>Brackets</h3>
+<p>Brackets are used to search for characters in a given range in regular expressions.</p>
 <div height="100%" style="overflow-x:auto" width="100%">
 <table class="bp3-html-table bp3-html-table-bordered bp3-html-table-striped bp3-interactive">
 <thead>
 <tr>
-<th>语法</th>
-<th>描述</th>
+<th>Expression</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>[...]</code></td>
-<td>匹配括号中的其中一个字符</td>
+<td>One of the characters in the brackets</td>
 </tr>
 <tr>
 <td><code>[^...]</code></td>
-<td>匹配不在括号中的字符</td>
+<td>One of the characters NOT in the brackets</td>
 </tr>
 <tr>
 <td><code>[a-z]</code></td>
-<td>从a到z的字符之一</td>
+<td>One of the characters from a to z</td>
 </tr>
 <tr>
 <td><code>[^a-z]</code></td>
-<td>非从a到z的字符之一</td>
+<td>One of the characters NOT from a to z</td>
 </tr>
 <tr>
 <td><code>[A-Z]</code></td>
-<td>从A到Z的字符之一</td>
+<td>One of the characters from A to Z</td>
 </tr>
 <tr>
 <td><code>[^A-Z]</code></td>
-<td>非从A到Z的字符之一</td>
+<td>One of the characters NOT from A to Z</td>
 </tr>
 <tr>
 <td><code>[0-9]</code></td>
-<td>0到9之间的一个字符(匹配一个数字)</td>
+<td>One of the characters from 0 to 9 (a digit character)</td>
 </tr>
 <tr>
 <td><code>[^0-9]</code></td>
-<td>非0到9之间的一个字符(非数字字符)</td>
+<td>One of the characters NOT from 0 to 9 (a non-digit character)</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3>组</h3>
-<p>正则表达式中的组指小括号括起来的一部分 <code>(...)</code>。</p>
+<h3>Groups</h3>
+<p>Groups in regular expressions are part of a search pattern enclosed in parentheses <code>(...)</code>.</p>
 <div height="100%" style="overflow-x:auto" width="100%">
 <table class="bp3-html-table bp3-html-table-bordered bp3-html-table-striped bp3-interactive">
 <thead>
 <tr>
-<th>语法</th>
-<th>描述</th>
+<th>Expression</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>(...)</code></td>
-<td>一个捕获组</td>
+<td>A capturing group</td>
 </tr>
 <tr>
 <td><code>(?:...)</code></td>
 <td>A non-capturing group</td>
 </tr>
 <tr>
-<td><code>(aa|bb)</code></td>
-<td>匹配aa或者bb</td>
+<td><code>(a|b)</code></td>
+<td>Either a or b</td>
 </tr>
 </tbody>
 </table>

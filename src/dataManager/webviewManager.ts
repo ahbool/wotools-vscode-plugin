@@ -21,10 +21,10 @@ class WebviewManager implements vscode.Disposable {
         }
     }
 
-    public getWebViewContent = (filePath: string) => {
+    public getWebViewContent = (filePath: string, fileDirPath?: string) => {
         const dirPath = path.dirname(filePath);
         let html = fs.readFileSync(filePath, 'utf-8');
-        html = this.insertWotoolsScript(html);
+        html = this.insertWotoolsScript(html, fileDirPath);
         html = html.replace(/(<link.+?href=["']|<script.+?src=["']|<img.+?src=["']|<a.+?href=["'])(.+?)["']/g, (m, $1, $2) => {
             const url: string = $2;
             if (url.startsWith('http://') || url.startsWith('https://')) {
@@ -35,7 +35,7 @@ class WebviewManager implements vscode.Disposable {
         return html;
     };
 
-    private insertWotoolsScript = (htmlContent: string) => {
+    private insertWotoolsScript = (htmlContent: string, fileDirPath: string = '') => {
         const language = globalManager.language;
         let basejsPath = path.join(configs.builtinPluginDirPath, 'wotools-base.js');
         let initjsPath = path.join(configs.builtinPluginDirPath, 'wotools-init.js');
@@ -49,7 +49,8 @@ class WebviewManager implements vscode.Disposable {
                 `<head>
             <script>
                 let wotools = {
-                    language: '${language}'
+                    language: '${language}',
+                    currPluginDirPath: '${fileDirPath}'
                 };
             </script>
             <script src="${basejsPath}"></script>`
