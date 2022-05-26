@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
     try {
         globalManager.setContext(context);
         globalManager.setVSCodeLanguage(vscode.env.language);
-        mainTreeManager.initPluginData();
+        mainTreeManager.loadingPluginData();
 
         const mainTreeDataProvider = new MainTreeDataProvider(context);
 
@@ -18,7 +18,11 @@ export function activate(context: vscode.ExtensionContext) {
 
         context.subscriptions.push(
             mainTreeView,
-            vscode.commands.registerCommand('woTools.selectPlugin', (pluginName: string, data: IPlugin) => commands.selectPlugin(pluginName, data))
+            vscode.commands.registerCommand('wotools.selectPlugin', (pluginName: string, data: IPlugin) => commands.selectPlugin(pluginName, data)),
+            vscode.commands.registerCommand('wotools.refresh', () => {
+                mainTreeManager.loadingPluginData();
+                mainTreeDataProvider.refresh();
+            })
         );
     } catch (error) {
         utils.logger.error('---plugin runtime error---');

@@ -67,7 +67,7 @@ category id: ${data.categoryId}`;
             case MainTreeNodeType.plugin:
                 command = {
                     title: '-',
-                    command: 'woTools.selectPlugin',
+                    command: 'wotools.selectPlugin',
                     arguments: [this.label, <IPlugin>this.nodeData],
                 };
                 break;

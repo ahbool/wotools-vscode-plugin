@@ -23,7 +23,7 @@ export default class MainTreeDataProvider implements vscode.TreeDataProvider<Mai
         return {
             label: element.label,
             tooltip: element.tooltip,
-            description: element.description,
+            description: undefined, // element.description,
             collapsibleState: element.nodeType === MainTreeNodeType.plugin ? vscode.TreeItemCollapsibleState.None : vscode.TreeItemCollapsibleState.Expanded,
             iconPath: element.iconPath,
             command: element.nodeType === MainTreeNodeType.plugin ? element.command : undefined,

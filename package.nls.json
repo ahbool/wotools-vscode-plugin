@@ -1,4 +1,5 @@
 {
-    "woTools.contributes.views.mainTreeView": "Tools List",
-    "woTools.contributes.views.favoriteTreeView": "My Tools List"
+    "wotools.contributes.views.mainTreeView": "Tools List",
+    "wotools.contributes.views.favoriteTreeView": "My Tools List",
+    "wotools.contributes.commands.refresh": "Refresh"
 }

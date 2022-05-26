@@ -18,25 +18,40 @@
     "contributes": {
         "commands": [
             {
-                "command": "woTools.selectPlugin",
+                "command": "wotools.refresh",
+                "title": "%wotools.contributes.commands.refresh%",
+                "category": "wotools",
+                "icon": "$(refresh)"
+            },
+            {
+                "command": "wotools.selectPlugin",
                 "title": "-",
-                "category": "woTools"
+                "category": "wotools"
             }
         ],
         "viewsContainers": {
             "activitybar": [
                 {
-                    "id": "woTools-explorer",
+                    "id": "wotools-explorer",
                     "title": "woTools",
                     "icon": "resources/logo2.png"
                 }
             ]
         },
         "views": {
-            "woTools-explorer": [
+            "wotools-explorer": [
                 {
                     "id": "mainTreeView",
-                    "name": "%woTools.contributes.views.mainTreeView%"
+                    "name": "%wotools.contributes.views.mainTreeView%"
+                }
+            ]
+        },
+        "menus": {
+            "view/title": [
+                {
+                    "command": "wotools.refresh",
+                    "when": "view == mainTreeView",
+                    "group": "navigation@0"
                 }
             ]
         }

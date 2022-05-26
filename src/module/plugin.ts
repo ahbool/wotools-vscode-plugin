@@ -18,5 +18,6 @@ export default interface IPlugin {
     author: string;
     homepage: string;
     categoryId: string;
+    disable: boolean;
     _pluginDirAbsolutePath: string;
 }

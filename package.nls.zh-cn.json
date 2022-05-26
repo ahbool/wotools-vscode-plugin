@@ -1,4 +1,5 @@
 {
-    "woTools.contributes.views.mainTreeView": "工具列表",
-    "woTools.contributes.views.favoriteTreeView": "我的工具列表"
+    "wotools.contributes.views.mainTreeView": "工具列表",
+    "wotools.contributes.views.favoriteTreeView": "我的工具列表",
+    "wotools.contributes.commands.refresh": "刷新列表"
 }

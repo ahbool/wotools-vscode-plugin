@@ -56,28 +56,31 @@ class MainTreeManager implements vscode.Disposable {
             const filePath = path.join(pluginDirPath, name);
             const stat = fs.statSync(filePath);
 
-            if (stat.isDirectory()) {
-                const pluginConfigPath = path.join(filePath, woToolsConfigs.pluginConfigFileName);
+            if (!stat.isDirectory()) {
+                return;
+            }
 
-                if (!utils.file.existsSync(pluginConfigPath)) {
-                    utils.logger.warning('plugin.json file not found', pluginConfigPath);
-                }
+            const pluginConfigPath = path.join(filePath, woToolsConfigs.pluginConfigFileName);
 
-                const jsonData: any = utils.file.readJsonSync(pluginConfigPath);
+            if (!utils.file.existsSync(pluginConfigPath)) {
+                utils.logger.warning('plugin.json file not found', pluginConfigPath);
+                return;
+            }
 
-                if (jsonData) {
-                    jsonData['_pluginDirAbsolutePath'] = path.join(filePath, path.sep);
-                    jsonDataList.push(jsonData as IPlugin);
-                } else {
-                    utils.logger.error('An error occurred while reading the file', pluginConfigPath);
-                }
+            const jsonData: any = utils.file.readJsonSync(pluginConfigPath);
+
+            if (jsonData && !jsonData.disable) {
+                jsonData['_pluginDirAbsolutePath'] = path.join(filePath, path.sep);
+                jsonDataList.push(jsonData as IPlugin);
+            } else {
+                utils.logger.error('An error occurred while reading the file', pluginConfigPath);
             }
         });
 
         return jsonDataList;
     }
 
-    public initPluginData() {
+    public loadingPluginData() {
         this.categoryList = this.fetchCategoryList();
         this.pluginList = this.fetchBuiltinPluginList();
     }
