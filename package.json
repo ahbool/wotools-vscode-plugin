@@ -86,9 +86,7 @@
         "webpack-cli": "^4.8.0",
         "@vscode/test-electron": "^1.6.2"
     },
-    "dependencies": {
-        "qiankun": "^2.7.0"
-    },
+    "dependencies": {},
     "repository": {
         "type": "git",
         "url": "https://git.xc5.io/git/xc5-sz/xcalscan-vscode-plugin"
