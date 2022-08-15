@@ -1,3 +1,4 @@
+import ISubPlugin from './subPlugin';
 export default interface IPlugin {
     id: string;
     main: string | undefined;
@@ -19,5 +20,6 @@ export default interface IPlugin {
     homepage: string;
     categoryId: string;
     disable: boolean;
+    children: Array<ISubPlugin> | undefined;
     _pluginDirAbsolutePath: string;
 }

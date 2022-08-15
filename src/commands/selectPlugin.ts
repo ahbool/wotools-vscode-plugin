@@ -55,9 +55,9 @@ function isExistsFile(dirPath: string, fileName: string) {
 }
 
 function runJS(pluginDir: string, mainFileName: string) {
-    // TODO
+    // TODO: 报错，不能获取到模块，应该是插件权限问题，只能获取插件目录内的模块
     // const mainJS = require(path.join(pluginDir, mainFileName)).default;
-    console.log('runJS...');
+    console.log('run js file...');
 }
 
 function runHtml(pluginDir: string, mainFileName: string, title: string, iconPath?: string) {

@@ -3,6 +3,7 @@ import mainTreeManager from './mainTreeManager';
 import { MainTreeNode } from './mainTreeNode';
 import MainTreeNodeType from './MainTreeNodeType';
 import ICategory from '../../module/category';
+import IPlugin from '../../module/plugin';
 
 export default class MainTreeDataProvider implements vscode.TreeDataProvider<MainTreeNode> {
     private _onDidChangeTreeData: vscode.EventEmitter<MainTreeNode | undefined> = new vscode.EventEmitter<MainTreeNode | undefined>();
@@ -24,9 +25,10 @@ export default class MainTreeDataProvider implements vscode.TreeDataProvider<Mai
             label: element.label,
             tooltip: element.tooltip,
             description: undefined, // element.description,
-            collapsibleState: element.nodeType === MainTreeNodeType.plugin ? vscode.TreeItemCollapsibleState.None : vscode.TreeItemCollapsibleState.Expanded,
+            collapsibleState:
+                element.nodeType === MainTreeNodeType.plugin && !element.hasSubPlugin ? vscode.TreeItemCollapsibleState.None : vscode.TreeItemCollapsibleState.Expanded,
             iconPath: element.iconPath,
-            command: element.nodeType === MainTreeNodeType.plugin ? element.command : undefined,
+            command: element.nodeType === MainTreeNodeType.plugin && !element.hasSubPlugin ? element.command : undefined,
             contextValue: MainTreeNodeType[element.nodeType],
         };
     }
@@ -37,6 +39,9 @@ export default class MainTreeDataProvider implements vscode.TreeDataProvider<Mai
         } else if (element.nodeType === MainTreeNodeType.category) {
             const categoryId = (element.nodeData as ICategory).id;
             this.nodeList = mainTreeManager.getChildrenNodes(categoryId);
+        } else if (element.nodeType === MainTreeNodeType.plugin && element.hasSubPlugin) {
+            const pluginData = element.nodeData as IPlugin;
+            this.nodeList = mainTreeManager.getChildrenNodesForSubPlugin(pluginData);
         }
 
         return this.nodeList;

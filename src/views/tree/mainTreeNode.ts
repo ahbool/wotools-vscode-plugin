@@ -3,8 +3,8 @@ import * as path from 'path';
 import configs from '../../woToolsConfigs';
 import globalManager from '../../dataManager/globalManager';
 import MainTreeNodeType from './mainTreeNodeType';
-import IPlugin from '../../module/plugin';
 import ICategory from '../../module/category';
+import IPlugin from '../../module/plugin';
 import utils from '../../utils';
 
 export class MainTreeNode {
@@ -52,6 +52,16 @@ category id: ${data.categoryId}`;
 
     public get nodeType(): MainTreeNodeType {
         return this._nodeType;
+    }
+
+    public get hasSubPlugin(): boolean {
+        if (this._nodeType === MainTreeNodeType.plugin) {
+            const data = this._nodeData as IPlugin;
+            if (data.children && data.children.length > 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public get nodeData(): IPlugin | ICategory {
@@ -102,6 +112,11 @@ category id: ${data.categoryId}`;
 
         if (customIconPath) {
             return customIconPath;
+        }
+
+        if (iconName.indexOf('.') === -1) {
+            // The system icon
+            return new vscode.ThemeIcon(iconName);
         }
 
         return {

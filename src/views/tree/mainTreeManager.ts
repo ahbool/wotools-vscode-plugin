@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import utils from '../../utils';
-import globalManager from '../../dataManager/globalManager';
 import woToolsConfigs from '../../woToolsConfigs';
 import { MainTreeNode } from './mainTreeNode';
 import MainTreeNodeType from './mainTreeNodeType';
@@ -18,18 +17,35 @@ class MainTreeManager implements vscode.Disposable {
         return this.categoryList.map((data) => new MainTreeNode(MainTreeNodeType.category, data));
     }
 
-    public getChildrenNodes(categoryId: string): MainTreeNode[] {
+    public getChildrenNodes(currCategoryId: string): MainTreeNode[] {
         let currPluginList: IPlugin[] = [];
 
-        if (categoryId === woToolsConfigs.otherCategoryId) {
+        if (currCategoryId === woToolsConfigs.otherCategoryId) {
+            // They will show up in the Other category: no category、ID is other category、category ID does not exist
             currPluginList = this.pluginList.filter((plugin) => {
+                const noCategory = !plugin.categoryId;
                 const isOtherCategory = plugin.categoryId === woToolsConfigs.otherCategoryId;
                 const notFoundCategory = this.categoryList.findIndex((cat) => cat.id === plugin.categoryId) === -1;
-                return isOtherCategory || notFoundCategory;
+                return noCategory || isOtherCategory || notFoundCategory;
             });
         } else {
-            currPluginList = this.pluginList.filter((x) => x.categoryId === categoryId);
+            currPluginList = this.pluginList.filter((x) => x.categoryId === currCategoryId);
         }
+        return currPluginList.map((data) => new MainTreeNode(MainTreeNodeType.plugin, data));
+    }
+
+    public getChildrenNodesForSubPlugin(nodeData: IPlugin): MainTreeNode[] {
+        let currPluginList: IPlugin[] = [];
+
+        nodeData.children?.forEach((x) => {
+            currPluginList.push({
+                ...nodeData,
+                main: x.main,
+                displayName: x.displayName,
+                children: undefined,
+                logo: '',
+            });
+        });
         return currPluginList.map((data) => new MainTreeNode(MainTreeNodeType.plugin, data));
     }
 
