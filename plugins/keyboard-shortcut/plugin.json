@@ -1,12 +1,22 @@
 {
-    "main": "index.js",
+    "main": "",
     "logo": "logo.png",
     "id": "keyboard-shortcut",
-    "displayName": "快捷键管理",
+    "displayName": "VS Code快捷键管理",
     "description": "查看和管理常用的快捷键, 提高工作效率",
     "version": "0.0.1",
     "author": "unknown",
     "homepage": "http://unknown",
     "categoryId": "normal-tool",
-    "disable": true
+    "disable": false,
+    "children": [
+        {
+            "main": "index_win.html",
+            "displayName": "VS Code Windows版快捷键"
+        },
+        {
+            "main": "index_mac.html",
+            "displayName": "VS Code macOS版快捷键"
+        }
+    ]
 }
