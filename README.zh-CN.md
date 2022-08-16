@@ -4,23 +4,25 @@ woTools 是一个 web 工具平台，它对您的 web 工具进行分类和集�
 
 在 VSCode 扩展中搜索`woTools`安装插件。
 
+![image](screenshots/main.png)
+
 # 描述
 
 它可以简单的分类管理您的多个 Web 工具。
 
-您可以将常用的 Web 工具放入 VSCode 插件中，VSCode 插件将以树状形式分类显示您的 Web 工具列表。
+您可以将常用的 Web 工具放入 woTools 插件中，woTools 插件将以树状形式分类显示您的 Web 工具列表。
 
 # Web 工具指的是什么?
 
-一个 web 工具，也是一个网页，指的是一个可以在本地使用的离线 html 文件，html 文件中引用 的外部文件，比如.png/.css/.js 只能使用相对路径。
+一个 web 工具，也是一个网页，指的是一个可以在本地使用的离线 html 文件。
 
-比如一个 html 格式的 json 格式化工具。
+比如一个用于格式化 JSON 的 html 页面。
 
 # 快速开始
 
 1. 创建一个 web 工具目录，比如`html-format`，目录中创建一个`index.html`和`plugin.json`文件。
 
-2. `index.html`里可随便输入一些测试内容。
+2. `index.html`里可随便输入一些测试内容。html 文件中引用的外部文件，比如.png/.css/.js 只能使用相对路径。
 
 3. `plugin.json`的内容请继续往下看，有具体说明。
 

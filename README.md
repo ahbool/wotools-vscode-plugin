@@ -4,6 +4,8 @@ woTools is a web tools platform, it categorizes and centrally manages your web t
 
 Search for `woTools` in the VSCode extension and install the plugin.
 
+![image](screenshots/main.png)
+
 # Description
 
 It can easily manage your multiple web tools.
@@ -12,13 +14,15 @@ You can put your commonly used Web tools into the VSCode plugin, and the VSCode 
 
 # A web tool
 
-A web tool, it's also a web page, it's an offline HTML file that can be used locally. External files referenced in the HTML file, such as.png/.css/.js, can only use relative paths.
+A web tool, it's also a web page, it's an offline HTML file that can be used locally.
+
+For example an html page for formatting JSON.
 
 # Quick start
 
 1. Create a Web tool folder, e.g. `html-format`, Create a `index.html` and `plugin.json` file in the folder.
 
-2. Feel free to type in some test content in the `index.html`.
+2. Feel free to type in some test content in the `index.html`. (External files referenced in the HTML file, such as.png/.css/.js, can only use relative paths.)
 
 3. The content of `plugin.json` is specified below.
 
