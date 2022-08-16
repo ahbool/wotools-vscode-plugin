@@ -1,7 +1,7 @@
 {
-    "name": "wotools-vscode-plugin",
-    "displayName": "woTools-vscode-plugin",
-    "description": "woTools is a web development toolkit",
+    "name": "vscode-wotools",
+    "displayName": "woTools",
+    "description": "woTools is a web tools platform, it categorizes and centrally manages your web tools",
     "version": "0.0.1",
     "publisher": "ahbool",
     "icon": "resources/logo.png",
@@ -89,6 +89,6 @@
     "dependencies": {},
     "repository": {
         "type": "git",
-        "url": "https://git.xc5.io/git/xc5-sz/xcalscan-vscode-plugin"
+        "url": "https://github.com/ahbool/wotools-vscode-plugin"
     }
 }
