@@ -126,3 +126,7 @@ function goto() {
 ## 示例插件
 
 在 VSCode 的插件安装目录下，找到 woTools 插件，里面有个`plugins`目录，里面有一些示例插件，可参考。
+
+# License
+
+[MIT](LICENSE)

@@ -130,6 +130,10 @@ The initial content.
 
 In the plugins installation directory of VSCode, find `woTools` plugins. There is a `plugins` directory that contains some sample plugins for reference.
 
+# License
+
+[MIT](LICENSE)
+
 #
 
 [中文说明](README.zh-CN.md)
