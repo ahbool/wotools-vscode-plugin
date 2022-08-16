@@ -66,7 +66,7 @@ All global variables or functions are placed under the `wotools` variable and ca
 
 1. `wotools.language`
 
-    Gets the current language of VSCode, used in javascript, which returns `en` or `zh-CN`.
+    Gets the current language of VSCode, used in javascript, which returns `en` or `zh-cn`.
 
 2. `wotools.gotoPage('relative path and file name')`
 

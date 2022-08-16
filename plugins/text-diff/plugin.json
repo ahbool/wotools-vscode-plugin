@@ -4,11 +4,11 @@
     "logo": "logo.png",
     "displayName": {
         "en": "Text diff",
-        "zh-CN": "文本diff"
+        "zh-cn": "文本diff"
     },
     "description": {
         "en": "Text Compare",
-        "zh-CN": "文本比较"
+        "zh-cn": "文本比较"
     },
     "version": "0.0.1",
     "author": "unknown",

@@ -66,7 +66,7 @@ woTools 是一个 web 工具平台，它对您的 web 工具进行分类和集�
 
 1. `wotools.language`
 
-    获取 VSCode 的当前语言，在 javascript 中使用，它返回'en' 或 'zh-CN'。
+    获取 VSCode 的当前语言，在 javascript 中使用，它返回'en' 或 'zh-cn'。
 
 2. `wotools.gotoPage('相对路径加文件名')`
 
