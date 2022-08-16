@@ -34,7 +34,7 @@ A web tool, it's also a web page, it's an offline HTML file that can be used loc
     "logo": "logo.png", // icon
     "id": "html-format", // plugin unique ID (required)
     "displayName": "HTML Format", // plugin name (required)
-    "description": "插件描述", // plugin description
+    "description": "description...", // plugin description
     "version": "0.0.1", // plugin version
     "author": "unknown", // plugin author
     "homepage": "http://unknown", // home page
