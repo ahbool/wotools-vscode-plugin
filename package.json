@@ -1,7 +1,7 @@
 {
     "name": "vscode-wotools",
     "displayName": "woTools",
-    "description": "woTools is a web tools platform, it categorizes and centrally manages your web tools",
+    "description": "woTools is a web tools platform, it categorizes and centrally manages your web tools.",
     "keywords": [
         "wotools",
         "web tool",
@@ -10,7 +10,7 @@
         "JSON格式化",
         "vscode快捷键"
     ],
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "ahbool",
     "icon": "resources/logo.png",
     "engines": {

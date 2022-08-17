@@ -1,3 +1,5 @@
+[中文说明](README.zh-CN.md)
+
 # woTools VSCode plugin
 
 woTools is a web tools platform, it categorizes and centrally manages your web tools.
@@ -137,9 +139,5 @@ In the plugins installation directory of VSCode, find `woTools` plugins. There i
 # License
 
 [MIT](LICENSE)
-
-#
-
-[中文说明](README.zh-CN.md)
 
 **Enjoy!**
