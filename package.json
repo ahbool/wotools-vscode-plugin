@@ -10,7 +10,7 @@
         "JSON格式化",
         "vscode快捷键"
     ],
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "ahbool",
     "icon": "resources/logo.png",
     "engines": {
