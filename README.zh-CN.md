@@ -88,7 +88,7 @@ function goto() {
 
 可以自行修改分类数据。
 
-在 woTools 插件安装目录下，修改`data/category.json`文件即可。
+在 woTools VSCode 插件的安装目录下，修改`plugins/category.json`文件即可。
 
 ```javascript
 [

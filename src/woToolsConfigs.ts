@@ -1,7 +1,7 @@
 const configs = {
     categoryIcon: 'terminal-debian',
     pluginIcon: 'symbol-interface',
-    categoryJsonFilePath: 'data/category.json',
+    categoryJsonFilePath: 'plugins/category.json',
     pluginConfigFileName: 'plugin.json',
     builtinPluginDirPath: 'plugins',
     otherCategoryId: 'other',

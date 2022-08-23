@@ -3,7 +3,6 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { WEBVIEW_MESSAGE_TYPE } from '../common/constants';
 import utils from '../utils';
-import configs from '../woToolsConfigs';
 import globalManager from './globalManager';
 
 interface IMessage {
@@ -37,8 +36,8 @@ class WebviewManager implements vscode.Disposable {
 
     private insertWotoolsScript = (htmlContent: string, fileDirPath: string = '') => {
         const language = globalManager.language;
-        let basejsPath = path.join(configs.builtinPluginDirPath, 'wotools-base.js');
-        let initjsPath = path.join(configs.builtinPluginDirPath, 'wotools-init.js');
+        let basejsPath = path.join('resources', 'webview', 'wotools-base.js');
+        let initjsPath = path.join('resources', 'webview', 'wotools-init.js');
 
         basejsPath = utils.tools.getAbsolutePath(basejsPath);
         initjsPath = utils.tools.getAbsolutePath(initjsPath);

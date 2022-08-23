@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import mainTreeManager from './mainTreeManager';
 import { MainTreeNode } from './mainTreeNode';
-import MainTreeNodeType from './MainTreeNodeType';
+import MainTreeNodeType from './mainTreeNodeType';
 import ICategory from '../../module/category';
 import IPlugin from '../../module/plugin';
 

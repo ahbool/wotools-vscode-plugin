@@ -93,7 +93,7 @@ function goto() {
 
 You can modify the Category data by yourself.
 
-In the woTools VSCode extension installation folder, modify the `data/category.json` file.
+In the woTools VSCode extension installation folder, modify the `plugins/category.json` file.
 
 The initial content.
 
