@@ -10,7 +10,7 @@
         "JSON格式化",
         "vscode快捷键"
     ],
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "ahbool",
     "icon": "resources/logo.png",
     "engines": {
@@ -78,7 +78,8 @@
         "test": "node ./out/test/runTest.js",
         "build": "vsce package",
         "webpack": "webpack --mode development",
-        "webpack-dev": "webpack --mode development --watch"
+        "webpack-dev": "webpack --mode development --watch",
+        "patch": "vsce publish patch"
     },
     "devDependencies": {
         "@types/vscode": "^1.32.0",
