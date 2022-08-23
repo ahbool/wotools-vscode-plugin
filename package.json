@@ -1,7 +1,7 @@
 {
     "name": "vscode-wotools",
     "displayName": "woTools",
-    "description": "woTools is a web tools platform, it categorizes and centrally manages your web tools.",
+    "description": "A Web Tools management platform, it categorizes and centrally manages your web tools.",
     "keywords": [
         "wotools",
         "web tool",
@@ -44,7 +44,7 @@
                 {
                     "id": "wotools-explorer",
                     "title": "woTools",
-                    "icon": "resources/logo2.png"
+                    "icon": "resources/logo.png"
                 }
             ]
         },

@@ -1,244 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="applicable-device" content="pc" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="referrer" content="always" />
-        <title>JSON格式化</title>
-        <link href="css/reset.css" rel="stylesheet" type="text/css" />
-        <link href="css/json.css" rel="stylesheet" type="text/css" />
-        <style>
-            .head .menu ul li {
-                margin: 35px 29px 0;
-            }
 
-            .nav_list {
-                width: auto;
-                margin-right: 70px;
-            }
+<head>
+    <meta charset="utf-8" />
+    <meta name="applicable-device" content="pc" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="referrer" content="always" />
+    <title>JSON格式化</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/json.css" rel="stylesheet" type="text/css" />
+    <style>
+        .head .menu ul li {
+            margin: 35px 29px 0;
+        }
 
-            body {
-                min-width: 800px;
-                margin: 0;
-            }
+        .nav_list {
+            width: auto;
+            margin-right: 70px;
+        }
 
-            .but-in {
-                line-height: 49px;
-                margin: 21px auto;
-                letter-spacing: 1px;
-                position: relative;
-                font-size: 18px;
-            }
-            .but-in:before,
-            .but-in:after {
-                content: '';
-                width: 100px;
-                height: 1px;
-                background-color: var(--vscode-editor-foreground);
-                position: absolute;
-                z-index: 1;
-                right: 20%;
-                top: 50%;
-            }
-            .but-in:before {
-                left: 19%;
-            }
+        body {
+            min-width: 800px;
+            margin: 0;
+        }
 
-            .one .read_json,
-            .one .show_json {
-                width: 800px;
-                height: 400px;
-                border: 1px solid #b2b2b2;
-                border-radius: 3px;
-                margin: 3px 0;
-                display: inline-block;
-                text-align: left;
-                overflow: auto;
-            }
+        .but-in {
+            line-height: 49px;
+            margin: 21px auto;
+            letter-spacing: 1px;
+            position: relative;
+            font-size: 18px;
+        }
 
-            .one {
-                text-align: center;
-                position: relative;
-            }
+        .but-in:before,
+        .but-in:after {
+            content: '';
+            width: 100px;
+            height: 1px;
+            background-color: var(--vscode-editor-foreground);
+            position: absolute;
+            z-index: 1;
+            right: 20%;
+            top: 50%;
+        }
 
-            .one .innerbox,
-            .nine .form-control {
-                resize: none;
-                border: 1px solid #ccc;
-                border-radius: 6px;
-                margin: 0 60px;
-                font-size: 16px;
-                padding: 20px;
-                background-color: transparent;
-                color: var(--vscode-editor-foreground);
-            }
+        .but-in:before {
+            left: 19%;
+        }
 
-            .intxt {
-                box-shadow: inset 0 0 38px #5157ff0f;
-            }
+        .one .read_json,
+        .one .show_json {
+            width: 800px;
+            height: 400px;
+            border: 1px solid #b2b2b2;
+            border-radius: 3px;
+            margin: 3px 0;
+            display: inline-block;
+            text-align: left;
+            overflow: auto;
+        }
 
-            textarea:focus {
-                outline: none;
-            }
+        .one {
+            text-align: center;
+            position: relative;
+        }
 
-            .tooltit {
-                text-align: center;
-                padding: 20px;
-                color: #f7f7f7;
-                letter-spacing: 2px;
-                font-size: 30px;
-                margin-bottom: 19px;
-                background: linear-gradient(to top, #1c9133, #38bc53);
-            }
+        .one .innerbox,
+        .nine .form-control {
+            resize: none;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin: 0 60px;
+            font-size: 16px;
+            padding: 20px;
+            background-color: transparent;
+            color: var(--vscode-editor-foreground);
+        }
 
-            .pb20 {
-                padding-bottom: 20px !important;
-                margin-top: 0px;
-            }
-            .pt10 {
-                padding-top: 10px !important;
-            }
-            .layui-btn-group {
-                display: inline-block;
-                vertical-align: middle;
-                font-size: 0;
-            }
-            .layui-btn-group .layui-btn:first-child {
-                border: 1px solid var(--vscode-editor-foreground);
-                border-radius: 2px 0 0 2px;
-            }
-            .layui-btn {
-                display: inline-block;
-                height: 38px;
-                line-height: 38px;
-                padding: 0 18px;
-                white-space: nowrap;
-                text-align: center;
-                font-size: 14px;
-                border: none;
-                cursor: pointer;
-                background-color: transparent;
-                border: 1px solid var(--vscode-editor-foreground);
-            }
-            .layui-btn-group .layui-btn-primary {
-                border-left: none;
-            }
-            .layui-btn-primary {
-                background-color: transparent;
-                color: var(--vscode-editor-foreground);
-            }
-            .layui-btn-group .layui-btn-primary:hover {
-                color: var(--vscode-editor-foreground);
-                opacity: 0.6;
-            }
+        .intxt {
+            box-shadow: inset 0 0 38px #5157ff0f;
+        }
 
-            .layui-elem-quote {
-                width: 800px;
-                margin: 0 auto;
-                border: 0;
-            }
+        textarea:focus {
+            outline: none;
+        }
 
-            .layui-elem-quote.success {
-                background-color: transparent !important;
-            }
-        </style>
-    </head>
+        .tooltit {
+            text-align: center;
+            padding: 20px;
+            color: #f7f7f7;
+            letter-spacing: 2px;
+            font-size: 30px;
+            margin-bottom: 19px;
+            background: linear-gradient(to top, #1c9133, #38bc53);
+        }
 
-    <body>
-        <div>
-            <article>
-                <section class="one" id="one">
-                    <div class="sojson-scroll">
-                        <p class="but-in">Json格式化工具</p>
-                        <textarea type="text" id="json_input" class="innerbox read_json intxt s1" placeholder="请输入需要检验的json字符串或URL" spellcheck="false">
-{"name":"WoTools","test":["python","java"]}</textarea
-                        >
-                    </div>
-                    <div class="layui-btn-group pt10 pb20">
-                        <button class="layui-btn" name="validate" data-ga="validate" type="submit" id="validate">校验 / 格式化</button>
-                        <a class="layui-btn layui-btn-primary" execute-data="1" onclick="convertToStandardJSON()" title="修复JSON：修复引号和转义符，删除注释">修复JSON</a>
-                        <a class="layui-btn layui-btn-primary" execute-data="2" onclick="compress()">压缩</a>
-                        <a class="layui-btn layui-btn-primary" execute-data="3" onclick="transferred()">转义</a>
-                        <a class="layui-btn layui-btn-primary" execute-data="4" onclick="untransferred()">去转义</a>
-                        <a class="layui-btn layui-btn-primary" execute-data="5" onclick="transchinese()">Unicode转中文</a>
-                        <a class="layui-btn layui-btn-primary" execute-data="6" onclick="transunicode()">中文转Unicode</a>
-                        <a class="layui-btn layui-btn-primary" execute-data="7" onclick="cleancontent()">清空</a>
-                    </div>
-                    <pre id="results" class="layui-elem-quote layui-quote-nm margint10" style="color: rgb(82, 146, 20); background: transparent; margin-bottom: 0">
-您校验的结果会在这里显示。</pre
-                    >
-                </section>
-            </article>
-        </div>
-        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/auto-line.js"></script>
-        <script type="text/javascript" src="js/parse.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                jsl.interactions.init();
-            });
-        </script>
-        <script type="text/javascript">
-            // compress
-            function compress() {
-                var text = $('.one .read_json').val();
-                text = text.replace(/ /g, '');
-                text = text.replace(/\n/g, '');
-                $('.one .read_json').val(text);
+        .pb20 {
+            padding-bottom: 20px !important;
+            margin-top: 0px;
+        }
+
+        .pt10 {
+            padding-top: 10px !important;
+        }
+
+        .layui-btn-group {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 0;
+        }
+
+        .layui-btn-group .layui-btn:first-child {
+            border: 1px solid var(--vscode-editor-foreground);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .layui-btn {
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 18px;
+            white-space: nowrap;
+            text-align: center;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid var(--vscode-editor-foreground);
+        }
+
+        .layui-btn-group .layui-btn-primary {
+            border-left: none;
+        }
+
+        .layui-btn-primary {
+            background-color: transparent;
+            color: var(--vscode-editor-foreground);
+        }
+
+        .layui-btn-group .layui-btn-primary:hover {
+            color: var(--vscode-editor-foreground);
+            opacity: 0.6;
+        }
+
+        .layui-elem-quote {
+            width: 800px;
+            margin: 0 auto;
+            border: 0;
+        }
+
+        .layui-elem-quote.success {
+            background-color: transparent !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <article>
+            <section class="one" id="one">
+                <div class="sojson-scroll">
+                    <p class="but-in">Json格式化工具</p>
+                    <textarea type="text" id="json_input" class="innerbox read_json intxt s1"
+                        placeholder="请输入需要检验的json字符串或URL" spellcheck="false">
+{"name":"WoTools","test":["python","java"]}</textarea>
+                </div>
+                <div class="layui-btn-group pt10 pb20">
+                    <button class="layui-btn" name="validate" data-ga="validate" type="submit" id="validate">校验 /
+                        格式化</button>
+                    <a class="layui-btn layui-btn-primary" execute-data="1" onclick="convertToStandardJSON()"
+                        title="修复JSON：修复单引号和转义符，删除注释">修复JSON</a>
+                    <a class="layui-btn layui-btn-primary" execute-data="2" onclick="compress()">压缩</a>
+                    <a class="layui-btn layui-btn-primary" execute-data="3" onclick="transferred()">转义</a>
+                    <a class="layui-btn layui-btn-primary" execute-data="4" onclick="untransferred()">去转义</a>
+                    <a class="layui-btn layui-btn-primary" execute-data="5" onclick="transchinese()">Unicode转中文</a>
+                    <a class="layui-btn layui-btn-primary" execute-data="6" onclick="transunicode()">中文转Unicode</a>
+                    <a class="layui-btn layui-btn-primary" execute-data="7" onclick="cleancontent()">清空</a>
+                </div>
+                <pre id="results" class="layui-elem-quote layui-quote-nm margint10"
+                    style="color: rgb(82, 146, 20); background: transparent; margin-bottom: 0">
+您校验的结果会在这里显示。</pre>
+            </section>
+        </article>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/auto-line.js"></script>
+    <script type="text/javascript" src="js/parse.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            jsl.interactions.init();
+        });
+    </script>
+    <script type="text/javascript">
+        // compress
+        function compress() {
+            var text = $('.one .read_json').val();
+            text = text.replace(/ /g, '');
+            text = text.replace(/\n/g, '');
+            $('.one .read_json').val(text);
+        }
+        // escape
+        function transferred() {
+            var text = $('.one .read_json').val();
+            if (text.indexOf('\\') != -1) {
+                text = text.replace(/\\/g, '\\\\');
             }
-            // escape
-            function transferred() {
-                var text = $('.one .read_json').val();
-                if (text.indexOf('\\') != -1) {
-                    text = text.replace(/\\/g, '\\\\');
+            if (text.indexOf('"') != -1) {
+                text = text.toString().replace(new RegExp('([""])', 'g'), '\\"');
+            }
+            $('.one .read_json').val(text);
+        }
+        // remove escape
+        function untransferred() {
+            var text = $('.one .read_json').val();
+            if (text.indexOf('\\') != -1) {
+                text = text.replace(/\\\\/g, '\\');
+            }
+            if (text.indexOf('"') != -1) {
+                text = text.replace(/\\\"/g, '"');
+            }
+            $('.one .read_json').val(text);
+        }
+        // convert Chinese to unicode
+        function transunicode() {
+            var text = $('.one .read_json').val();
+            var card = text.match(/[\u4e00-\u9fa5]/g);
+            if (card) {
+                card = card.join('');
+                for (var i = 0, len = card.length; i < len; i++) {
+                    res = '\\u' + card[i].charCodeAt(0).toString(16);
+                    text = text.replace(card[i], res);
                 }
-                if (text.indexOf('"') != -1) {
-                    text = text.toString().replace(new RegExp('([""])', 'g'), '\\"');
-                }
-                $('.one .read_json').val(text);
             }
-            // remove escape
-            function untransferred() {
-                var text = $('.one .read_json').val();
-                if (text.indexOf('\\') != -1) {
-                    text = text.replace(/\\\\/g, '\\');
-                }
-                if (text.indexOf('"') != -1) {
-                    text = text.replace(/\\\"/g, '"');
-                }
-                $('.one .read_json').val(text);
-            }
-            // convert Chinese to unicode
-            function transunicode() {
-                var text = $('.one .read_json').val();
-                var card = text.match(/[\u4e00-\u9fa5]/g);
-                if (card) {
-                    card = card.join('');
-                    for (var i = 0, len = card.length; i < len; i++) {
-                        res = '\\u' + card[i].charCodeAt(0).toString(16);
-                        text = text.replace(card[i], res);
-                    }
-                }
-                $('.one .read_json').val(text);
-            }
-            // convert unicode to Chinese
-            function transchinese() {
-                var text = $('.one .read_json').val();
-                text = unescape(text.replace(/\\u/g, '%u'));
-                $('.one .read_json').val(text);
-            }
-            // add quotes to key
-            function convertToStandardJSON() {
-                var text = $('.one .read_json').val();
-                eval('var textObj = ' + text);
-                text = JSON.stringify(textObj, null, '    ');
-                $('.one .read_json').val(text);
-            }
-            // clean
-            function cleancontent() {
-                $('.one .read_json').val('');
-            }
-        </script>
-    </body>
+            $('.one .read_json').val(text);
+        }
+        // convert unicode to Chinese
+        function transchinese() {
+            var text = $('.one .read_json').val();
+            text = unescape(text.replace(/\\u/g, '%u'));
+            $('.one .read_json').val(text);
+        }
+        // add quotes to key
+        function convertToStandardJSON() {
+            var text = $('.one .read_json').val();
+            eval('var textObj = ' + text);
+            text = JSON.stringify(textObj, null, '    ');
+            $('.one .read_json').val(text);
+        }
+        // clean
+        function cleancontent() {
+            $('.one .read_json').val('');
+        }
+    </script>
+</body>
+
 </html>

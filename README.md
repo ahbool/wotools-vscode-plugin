@@ -1,38 +1,40 @@
 [中文说明](README.zh-CN.md)
 
-# woTools VSCode plugin
+# ➊ woTools VSCode extension
 
-woTools is a web tools platform, it categorizes and centrally manages your web tools.
+woTools is a web tools management platform, it categorizes and centrally manages your web tools.
 
-Search for `woTools` in the VSCode extension and install the plugin.
+Search for `woTools` in the VSCode extension and install it.
 
-![image](screenshots/main.png)
-
-# Description
+# ➋ Description
 
 It can easily manage your multiple web tools.
 
-You can put your commonly used Web tools into the VSCode plugin, and the VSCode plugin will display your list of Web tools in a tree form.
+You can put your commonly used Web tools into the woTools, and the woTools will display your list of Web tools in a tree form.
 
-# A web tool
+# ➌ What does the Web tool mentioned here refer to?
 
-A web tool, it's also a web page, it's an offline HTML file that can be used locally.
+A Web tool, it's also a web page, it's an offline HTML file that can be used locally.
 
 For example an html page for formatting JSON.
 
-# Quick start
+![image](screenshots/main.png)
+
+# ➍ Quick start
+
+> Put your local web tools into woTools for centralized management.
 
 1. Create a Web tool folder, e.g. `html-format`, Create a `index.html` and `plugin.json` file in the folder.
 
-2. Feel free to type in some test content in the `index.html`. (External files referenced in the HTML file, such as.png/.css/.js, can only use relative paths.)
+2. Feel free to type in some test content in the `index.html`. (External files referenced in the HTML file, such as \*.png/.css/.js, can only use relative paths.)
 
 3. The content of `plugin.json` is specified below.
 
-4. Find the installation directory of the VSCode plugin, then go to the `vscode-wotools/plugins` directory, copy the `html-format` folder you just created into the `plugins` directory.
+4. Find the installation folder of the VSCode extension, then go to the `vscode-wotools/plugins` folder, copy the `html-format` folder you just created into the `plugins` folder.
 
-5. Clicking the refresh button in the top right corner of the woTools plugin will reload the list of Web tools and the newly added `html-format` will be displayed in the list.
+5. Clicking the refresh button in the top right corner of the woTools will reload the list of Web tools and the newly added `html-format` will be displayed in the list.
 
-## About plugin.json file
+## ✿ About plugin.json file
 
 ```javascript
 {
@@ -60,9 +62,9 @@ For example an html page for formatting JSON.
 }
 ```
 
-# Development
+# ➎ Development
 
-## Global variable or function
+## ♬ Global variable or function
 
 All global variables or functions are placed under the `wotools` variable and can be printed and viewed using`console.log(wotools)`.
 
@@ -74,7 +76,7 @@ All global variables or functions are placed under the `wotools` variable and ca
 
     Page redirection.
 
-    In VSCode plugin，redirecting with `<a href="index2.html">goto</a>` is forbidden in HTML files.
+    In VSCode extension, redirecting with `<a href="index2.html">goto</a>` is forbidden in HTML files.
     If multiple pages need to be redirected to each other, the following is an example:
 
 ```javascript
@@ -87,11 +89,11 @@ function goto() {
 }
 ```
 
-## Category management
+## ☂ Category management
 
 You can modify the Category data by yourself.
 
-In the woTools VSCode plugin installation directory, modify the `data/category.json` file.
+In the woTools VSCode extension installation folder, modify the `data/category.json` file.
 
 The initial content.
 
@@ -132,12 +134,30 @@ The initial content.
 ];
 ```
 
-## Sample plugin
+## ☀ Sample plugin for woTools
 
-In the plugins installation directory of VSCode, find `woTools` plugins. There is a `plugins` directory that contains some sample plugins for reference.
+In the extensions installation folder of VSCode, find `woTools` extension. There is a `plugins` folder that contains some sample plugins for reference.
 
-# License
+# ➏ Where are VSCode extensions installed?
+
+Extensions are installed in a per user extensions folder. Depending on your platform, the location is in the following folder:
+
+> Windows `%USERPROFILE%\.vscode\extensions`
+
+> macOS `~/.vscode/extensions`
+
+> Linux `~/.vscode/extensions`
+
+# ➐ Contribute
+
+If you can, we really hope that you will share the web page widgets you use to woTools for everyone to use.
+
+The web page widgets are placed in the `plugins` folder of the project. Simply submit a PR to the GitHub project below. Thanks.
+
+> https://github.com/ahbool/wotools-vscode-plugin
+
+# ➑ License
 
 [MIT](LICENSE)
 
-**Enjoy!**
+**☺ Enjoy!**
