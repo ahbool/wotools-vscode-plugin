@@ -152,9 +152,13 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 
 If you can, we really hope that you will share the web page widgets you use to woTools for everyone to use.
 
-The web page widgets are placed in the `plugins` folder of the project. Simply submit a PR to the GitHub project below. Thanks.
+The web page widgets are placed in the `wotools-plugin-list` Github project, then submit a Pull Request.
 
-> https://github.com/ahbool/wotools-vscode-plugin
+Below is the `wotools-plugin-list` project address.
+
+> https://github.com/ahbool/wotools-plugin-list
+
+Thanks.
 
 # ➑ License
 
