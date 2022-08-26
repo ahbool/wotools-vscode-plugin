@@ -150,9 +150,9 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 
 # ➐ Contribute
 
-If you can, we really hope that you will share the web page widgets you use to woTools for everyone to use.
+If you can, we really hope that you will share the web page gadget you use to woTools for everyone to use.
 
-The web page widgets are placed in the `wotools-plugin-list` Github project, then submit a Pull Request.
+The web page gadget are placed in the `wotools-plugin-list` Github project, then submit a Pull Request.
 
 Below is the `wotools-plugin-list` project address.
 

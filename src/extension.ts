@@ -22,7 +22,8 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.commands.registerCommand('wotools.refresh', () => {
                 mainTreeManager.loadingPluginData();
                 mainTreeDataProvider.refresh();
-            })
+            }),
+            vscode.commands.registerCommand('wotools.gotoSetting', () => commands.gotoSetting())
         );
     } catch (error) {
         utils.logger.error('---plugin runtime error---');

@@ -4,6 +4,7 @@ import * as fs from 'fs';
 import { WEBVIEW_MESSAGE_TYPE } from '../common/constants';
 import utils from '../utils';
 import globalManager from './globalManager';
+import configurationManager from './configurationManager';
 
 interface IMessage {
     type: string;
@@ -69,6 +70,12 @@ class WebviewManager implements vscode.Disposable {
      * @param isSideMode display in the side
      */
     public showWebview({ title, content, isSideMode = false, iconPath }: { title?: string; content?: string; isSideMode?: boolean; iconPath?: string }): void {
+        const localResourceRoots = [vscode.Uri.file(globalManager._context.extensionPath)];
+        const localPluginDirPath = configurationManager.getConfiguration().localPluginDirPath;
+        if (!!localPluginDirPath && path.isAbsolute(localPluginDirPath) && utils.file.existsSync(localPluginDirPath)) {
+            localResourceRoots.push(vscode.Uri.file(localPluginDirPath));
+        }
+
         if (!this.panel) {
             this.panel = vscode.window.createWebviewPanel(
                 this.viewType,
@@ -80,6 +87,7 @@ class WebviewManager implements vscode.Disposable {
                 {
                     enableScripts: true,
                     retainContextWhenHidden: true,
+                    localResourceRoots: localResourceRoots,
                 }
             );
 

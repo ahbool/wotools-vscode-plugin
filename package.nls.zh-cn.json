@@ -1,5 +1,7 @@
 {
     "wotools.contributes.views.mainTreeView": "工具列表",
     "wotools.contributes.views.favoriteTreeView": "我的工具列表",
-    "wotools.contributes.commands.refresh": "刷新列表"
+    "wotools.contributes.commands.refresh": "刷新列表",
+    "wotools.contributes.commands.gotoSetting": "设置",
+    "wotools.contributes.configuration.FolderPathForLocalPlugins": "设置本地web小工具所在目录(只支持绝对路径)，woTools将从此目录加载小工具，设置好后点击插件右上角的刷新按钮更新插件列表。"
 }

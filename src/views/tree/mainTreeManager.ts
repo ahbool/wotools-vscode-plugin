@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import utils from '../../utils';
+import configurationManager from '../../dataManager/configurationManager';
 import woToolsConfigs from '../../woToolsConfigs';
 import { MainTreeNode } from './mainTreeNode';
 import MainTreeNodeType from './mainTreeNodeType';
@@ -56,20 +57,20 @@ class MainTreeManager implements vscode.Disposable {
         return resource ? (resource as []) : [];
     }
 
-    private fetchBuiltinPluginList(): IPlugin[] {
+    private fetchPluginList(pluginDirPath: string): IPlugin[] {
         const jsonDataList: IPlugin[] = [];
-        const pluginDirPath = utils.tools.getAbsolutePath(woToolsConfigs.builtinPluginDirPath);
+        const pluginDirAbsolutePath = utils.tools.getAbsolutePath(pluginDirPath);
         let subFiles: string[] = [];
 
         try {
-            subFiles = fs.readdirSync(pluginDirPath);
+            subFiles = fs.readdirSync(pluginDirAbsolutePath);
         } catch (err) {
             utils.logger.error('Load the plug-in', err);
-            throw err;
+            return [];
         }
 
         subFiles.forEach((name) => {
-            const filePath = path.join(pluginDirPath, name);
+            const filePath = path.join(pluginDirAbsolutePath, name);
             const stat = fs.statSync(filePath);
 
             if (!stat.isDirectory()) {
@@ -98,7 +99,19 @@ class MainTreeManager implements vscode.Disposable {
 
     public loadingPluginData() {
         this.categoryList = this.fetchCategoryList();
-        this.pluginList = this.fetchBuiltinPluginList();
+
+        let localPluginList: IPlugin[] = [];
+        const builtinPluginList = this.fetchPluginList(woToolsConfigs.builtinPluginDirPath);
+
+        const localPluginDirPath = configurationManager.getConfiguration().localPluginDirPath;
+        if (!!localPluginDirPath && path.isAbsolute(localPluginDirPath) && utils.file.existsSync(localPluginDirPath)) {
+            localPluginList = this.fetchPluginList(localPluginDirPath);
+            localPluginList.forEach((plugin) => {
+                plugin.categoryId = woToolsConfigs.localCategoryId;
+            });
+        }
+
+        this.pluginList = builtinPluginList.concat(localPluginList);
     }
 
     public dispose(): void {

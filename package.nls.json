@@ -1,5 +1,7 @@
 {
     "wotools.contributes.views.mainTreeView": "Tools List",
     "wotools.contributes.views.favoriteTreeView": "My Tools List",
-    "wotools.contributes.commands.refresh": "Refresh"
+    "wotools.contributes.commands.refresh": "Refresh",
+    "wotools.contributes.commands.gotoSetting": "Setting",
+    "wotools.contributes.configuration.FolderPathForLocalPlugins": "Set the directory where the local web gadget is located (only absolute path is supported), woTools will load the gadget from this directory. Click the refresh button in the upper right corner of the woTools after the Settings."
 }
