@@ -2,46 +2,52 @@
 
 # ➊ woTools VSCode extension
 
-woTools is a web tools management platform, it categorizes and centrally manages your web tools.
+woTools is a web tool management platform that comes with some common web widgets, such as JSON formatting, regular expression validation, and more.
 
-Search for `woTools` in the VSCode extension and install it.
+Search for `woTools` in the VSCode extension to install it.
 
-# ➋ Description
+# ➋ Other features
 
-It can easily manage your multiple web tools.
-
-You can put your commonly used Web tools into the woTools, and the woTools will display your list of Web tools in a tree form.
+The woTools extension can also centrally manage some of your local web gadgets. For example, if you have written some web gadgets, you can put them all into the woTools extension, and you can open and use them directly in the woTools extension of VSCode.
 
 # ➌ What does the Web tool mentioned here refer to?
 
-A Web tool, it's also a web page, it's an offline HTML file that can be used locally.
+The web tool mentioned here is a web page, an html file that can be used locally and offline, such as an html page for formatting JSON, or an html file for code compression and decompression.
 
-For example an html page for formatting JSON.
+A web widget can be a separate html file, js code or css styles are all in the html file.
+
+A web gadget can also be composed of .html, .js, .css, and .png files. External link files in html can only use relative paths, that is, paths relative to html files.
+
+In web tools, NodeJS is not supported.
 
 ![image](screenshots/main.png)
 
 # ➍ Quick start
 
-> Put your local web tools into woTools for centralized management.
+> Put the locally developed web widgets into the woTools VSCode plugin for centralized management and use.
 
-1. Create a Web tool folder, e.g. `html-format`, Create a `index.html` and `plugin.json` file in the folder.
+1. Install the woTools VSCode plugin first, and search for `woTools` in the VSCode extension management to install it.
 
-2. Feel free to type in some test content in the `index.html`. (External files referenced in the HTML file, such as \*.png/.css/.js, can only use relative paths.)
+2. Create a folder anywhere to store web widgets, such as `my-web-tools`.
 
-3. The content of `plugin.json` is specified below.
+3. Create a new web tools folder in `my-web-tools`, such as `json-format`, and then create two files in `json-format`, `index.html` and `plugin.json`.
 
-4. Find the installation folder of the VSCode extension, then go to the `vscode-wotools/plugins` folder, copy the `html-format` folder you just created into the `plugins` folder.
+4. You can enter some test content in `index.html`. (External files referenced in html files, such as .png/.css/.js can only use relative paths)
 
-5. Clicking the refresh button in the top right corner of the woTools will reload the list of Web tools and the newly added `html-format` will be displayed in the list.
+5. The content of `plugin.json` is specified below.
 
-## ✿ About plugin.json file
+6. Open the setting interface of the `woTools` plugin, and set the directory where the local web gadget is located, such as `/home/my-web-tools`.
+
+7. Finally, click the refresh button in the upper right corner of the `woTools` plugin, the list of web tools will be reloaded, and the newly added `json-format` will be displayed in the list.
+
+## ☂ About plugin.json file
 
 ```javascript
 {
     "main": "index.html", // entry file name (required)
-    "logo": "logo.png", // icon
-    "id": "html-format", // plugin unique ID (required)
     "displayName": "HTML Format", // plugin name (required)
+    "logo": "logo.png", // icon
+    "id": "html-format", // plugin unique ID
     "description": "description...", // plugin description
     "version": "0.0.1", // plugin version
     "author": "unknown", // plugin author
@@ -51,7 +57,7 @@ For example an html page for formatting JSON.
     // after using children, the above main entry file will become invalid
     "children": [
         {
-            "main": "index.html", // child entry file
+            "main": "index1.html", // child entry file
             "displayName": "HTML4 Format"
         },
         {
@@ -62,7 +68,7 @@ For example an html page for formatting JSON.
 }
 ```
 
-# ➎ Development
+# ➎ Development for web page gadget
 
 ## ♬ Global variable or function
 
@@ -89,51 +95,6 @@ function goto() {
 }
 ```
 
-## ☂ Category management
-
-You can modify the Category data by yourself.
-
-In the woTools VSCode extension installation folder, modify the `plugins/category.json` file.
-
-The initial content.
-
-```javascript
-[
-    {
-        id: 'text',
-        displayName: {
-            en: 'Text',
-            'zh-cn': '文本',
-        },
-        order: 1,
-    },
-    {
-        id: 'data-format',
-        displayName: {
-            en: 'Data Formatting',
-            'zh-cn': '数据格式化',
-        },
-        order: 2,
-    },
-    {
-        id: 'encrypt-decrypt',
-        displayName: {
-            en: 'Encrypt / Decrypt',
-            'zh-cn': '加密 / 解密',
-        },
-        order: 3,
-    },
-    {
-        id: 'other',
-        displayName: {
-            en: 'Othen',
-            'zh-cn': '其它',
-        },
-        order: 4,
-    },
-];
-```
-
 ## ☀ Sample plugin for woTools
 
 In the extensions installation folder of VSCode, find `woTools` extension. There is a `plugins` folder that contains some sample plugins for reference.
@@ -158,7 +119,7 @@ Below is the `wotools-plugin-list` project address.
 
 > https://github.com/ahbool/wotools-plugin-list
 
-Thanks.
+Thanks~
 
 # ➑ License
 
